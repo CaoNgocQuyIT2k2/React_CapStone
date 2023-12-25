@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+:where(.css-dev-only-do-not-override-gzal6t).ant-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  justify-content: center;
+}
+
+.col-4 {
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 60%;
+}
