@@ -71,8 +71,8 @@ export default function DataCategory({ setIsButtonClicked, isButtonClicked }) {
           <Button onClick={() => handleDelete(categories.maPhim)} className='text-red-500 border-0 text-lg'>
             <DeleteOutlined />
           </Button>
-          <Button onClick={() => setIsButtonClicked(true)} className='text-green-500 border-0 text-lg'>
-            <CarryOutOutlined />
+          <Button className='text-green-500 border-0 text-lg'>
+            <Link to={`/lichChieuPhim/${categories.maPhim}`}><CarryOutOutlined /></Link>
           </Button>
         </div>
       ),

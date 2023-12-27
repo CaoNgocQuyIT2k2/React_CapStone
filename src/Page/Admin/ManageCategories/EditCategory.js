@@ -10,7 +10,7 @@ const EditCategory = ({ showModal, articleName, categoriesId,fetchArticleDetail 
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [categoryName, setCategoryName] = useState('');
-  const user = useSelector((state) => state.userReducer.user);
+  let user = useSelector((state) => state.userReducer.user);
 
   useEffect(() => {
     // Set the categoryName when the articleName changes

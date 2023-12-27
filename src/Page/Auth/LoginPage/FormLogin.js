@@ -10,28 +10,7 @@ import { loginAction } from "../../../redux/action/loginAction";
 const FormLogin = () => {
   let dispatch = useDispatch();
   let navigate = useNavigate();
-  // const onFinishV2 = (values) => {
-  //   https
-  //     .post("/api/QuanLyNguoiDung/DangNhap", values)
-  //     .then((res) => {
-  //       //chuyển hướng về trang chủ
-  //       navigate("/");
-  //       // đảy data xuống localStorage để khi user load trang thì thông tin đăng nhập vẫn còn
-  //       let dataJson = JSON.stringify(res.data.content);
-  //       localStorage.setItem("USER_INFO", dataJson);
-  //       message.success("login thành công");
-  //       //đẩy thông tin user lên redux
-  //       dispatch({
-  //         type: SET_INFO,
-  //         payload: res.data.content,
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       message.error("Đã có lỗi xảy ra");
-  //     });
-  //   console.log("Success:", values);
-  // };
+  
   const onFinish = (values) => {
     dispatch(loginAction(values, navigate));
   };

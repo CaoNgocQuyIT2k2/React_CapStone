@@ -1,10 +1,51 @@
 import React from 'react';
 import { Breadcrumb, Layout } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const { Header } = Layout;
 
 const Headers = () => {
+  let navigate = useNavigate();
+
+  // Move the useSelector inside the functional component
+  let user = useSelector((state) => state.userReducer.user);
+  console.log("user",user);
+  const renderMenu = () => {
+    if (user) {
+      return (
+        <>
+          <span>{user.hoTen}</span>
+          <button
+            className="btn-theme"
+            onClick={() => {
+              window.location.href = "/";
+              // Clear user data
+              localStorage.removeItem("USER_INFO");
+            }}
+          >
+            Logout
+          </button>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <div className='text-white'>
+            <Link to="/login">Đăng nhập</Link>
+          </div>
+          <div className='text-white pl-2 pr-2'>
+            |
+          </div>
+          <div className='text-white'>
+            <Link to="/register">Đăng kí</Link>
+          </div>
+        </>
+      );
+    }
+    
+  };
+
   return (
     <Layout>
       <Header
@@ -48,16 +89,8 @@ const Headers = () => {
             ]}
           />
         </div>
-
-        <div className='text-white'>
-          <Link to="/login">Đăng nhập</Link>
-        </div>
-        <div className='text-white pl-2 pr-2'>
-          |
-        </div>
-        <div className='text-white'>
-          <Link to="/register">Đăng kí</Link>
-        </div>
+          
+        {renderMenu()}
       </Header>
     </Layout>
   );

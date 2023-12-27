@@ -23,7 +23,7 @@ function App() {
           </Route>
 
           <Route path="admin" element={<Admin />} />
-          <Route path="lichChieuPhim" element={<LichChieuPhim />} />
+          <Route path="lichChieuPhim/:idPhim" element={<LichChieuPhim />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<Register/>} />
         </Routes>

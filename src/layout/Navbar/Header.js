@@ -1,12 +1,89 @@
 import React from 'react';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { Breadcrumb, Layout, Menu, theme, Button, Dropdown, message, Space } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutUser } from '../../redux/action/logout';
 const { Header, Content, Footer } = Layout;
 
+
+
 const Headers = () => {
-    const {
-        token: { colorBgContainer, borderRadiusLG },
-    } = theme.useToken();
+
+    let dispatch = useDispatch();
+
+    //useNavigate dùng để điều hướng trang và không gây reload
+
+    //lấy dữ liệu từ redux về
+    //useSelector ~ mapStateToProps
+    let user = useSelector((state) => state.userReducer.user);
+    let renderMenu = () => {
+        if (user) {
+            return (
+                <>
+                    <div className='text-white'>
+                        <Space wrap>
+                            <Dropdown.Button
+                                menu={menuProps}
+                                placement="bottom"
+                                icon={<UserOutlined style={{ color: 'white' }} />}
+                                style={{ backgroundColor: 'transparent', color: 'white', border: 'none' }}
+                                onClick={handleMenuClick}
+                            >
+                                <div className='text-white'>{user.hoTen}</div>
+                            </Dropdown.Button>
+                        </Space>
+                    </div>
+                </>
+            );
+        } else {
+            return (
+                <>
+
+                    <div className='text-white'>
+                        <Link to="/login">Đăng nhập</Link>
+                    </div>
+                    <div className='text-white pl-2 pr-2'>
+                        |
+                    </div>
+                    <div className='text-white'>
+                        <Link to="/register">Đăng kí</Link>
+                    </div>
+                </>
+            );
+        }
+    };
+
+
+    const handleMenuClick = (e) => {
+        console.log('click', e);
+      
+        // Check if the key is '2' (Log out)
+        if (e.key === '2') {
+            window.location.reload();
+            message.success('Đăng xuất thành công');
+          // Perform the logout action
+          window.location.href = "/";
+          // Clear data user and reset state userReducer
+          localStorage.removeItem("USER_INFO");
+          dispatch(logoutUser());
+          return;
+        }
+       
+      };
+      
+
+
+    const items = [
+        { label: 'Admin', key: '1', icon: <UserOutlined /> },
+        { label: 'Log out', key: '2', icon: <UserOutlined /> },
+
+    ];
+
+    const menuProps = {
+        items,
+        onClick: handleMenuClick,
+    };
     return (
         <Layout>
             <Header
@@ -20,7 +97,7 @@ const Headers = () => {
                 }}
             >
                 <div className="demo-logo">
-                <img className='w-40' src="../../images/logo.png" alt="Logo" />
+                    <img className='w-40' src="../../images/logo.png" alt="Logo" />
                 </div>
 
                 <Breadcrumb style={{
@@ -44,16 +121,7 @@ const Headers = () => {
                     ]}
                 />
 
-
-                <div className='text-white'>
-                    <Link to="/login">Đăng nhập</Link>
-                </div>
-                <div className='text-white pl-2 pr-2'>
-                    |
-                </div>
-                <div className='text-white'>
-                    <Link to="/register">Đăng kí</Link>
-                </div>
+                {renderMenu()}
             </Header>
         </Layout>
     );

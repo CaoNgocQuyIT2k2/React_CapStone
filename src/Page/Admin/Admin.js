@@ -23,6 +23,8 @@ const Admin = () => {
   };
 
   const renderContent = () => {
+    console.log('isButtonClicked:', isButtonClicked); // Add this log to check the value
+
     switch (selectedMenuItem) {
       case '1':
         return (

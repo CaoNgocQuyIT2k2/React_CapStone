@@ -162,3 +162,11 @@
   background-color: #00ff00; /* Màu nền ghế đã chọn */
   color: #000; /* Màu chữ cho ghế đã chọn */
 }
+
+:where(.css-dev-only-do-not-override-gzal6t).ant-btn.ant-btn-sm {
+  font-size: 14px;
+  height: 24px;
+  padding: 0px 7px;
+  border-radius: 4px;
+  color:#000;
+}
