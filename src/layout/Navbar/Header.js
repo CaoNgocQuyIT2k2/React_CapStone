@@ -1,7 +1,7 @@
 import React from 'react';
 import { Breadcrumb, Layout, Menu, theme, Button, Dropdown, message, Space } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
+import { Link, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../../redux/action/logout';
 const { Header, Content, Footer } = Layout;
@@ -57,7 +57,9 @@ const Headers = () => {
 
     const handleMenuClick = (e) => {
         console.log('click', e);
-      
+        if (e.key === '1') {
+            window.location.href = '/admin';
+        }
         // Check if the key is '2' (Log out)
         if (e.key === '2') {
             window.location.reload();
@@ -76,7 +78,7 @@ const Headers = () => {
 
     const items = [
         { label: 'Admin', key: '1', icon: <UserOutlined /> },
-        { label: 'Log out', key: '2', icon: <UserOutlined /> },
+        { label: 'Log out', key: '2', icon: <LogoutOutlined /> },
 
     ];
 
