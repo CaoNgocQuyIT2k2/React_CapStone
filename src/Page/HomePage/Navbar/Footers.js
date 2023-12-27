@@ -19,8 +19,15 @@ const currentYear = new Date().getFullYear();
  
 export function Footers() {
   return (
-    <footer className="relative w-full">
-      <div className="mx-auto w-full max-w-7xl px-8">
+    <footer style={{
+      border: "1px solid black",
+      backgroundImage: `url(${require('../../../components/img/bgFooter.jpg')})`,
+      backgroundPosition: 'center',
+      backgroundRepeat: 'none',
+      backgroundSize: 'cover',
+      color: 'white',
+    }} className="relative w-full ">
+      <div className="mx-auto w-full max-w-7xl px-8 pt-5">
         <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
           <Typography variant="h5" className="mb-6">
             <img src="../../images/logo.png" alt="" />

@@ -6,7 +6,7 @@ import { Footers } from '../Page/HomePage/Navbar/Footers'
 
 export default function HomeLayout() {
   return (
-    <div className='space-y-5'>
+    <div className=''>
         <Headers/>
         <Outlet/>
         <Footers/>

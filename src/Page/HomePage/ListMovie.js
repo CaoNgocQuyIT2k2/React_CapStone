@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Card } from "antd";
 import Meta from "antd/es/card/Meta";
 import { https } from "../../services/config.js";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaStar } from "react-icons/fa6";
 
 export default function ListMovie() {
@@ -13,6 +13,7 @@ export default function ListMovie() {
       .get("/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP09")
       .then((res) => {
         setMovieArr(res.data.content);
+        console.log("res.data.content",res.data.content)
       })
       .catch((err) => {
         console.log(err);
@@ -46,7 +47,8 @@ export default function ListMovie() {
             cover={<img style={{ height: "250px" }} alt="example" src={item.hinhAnh} />}
           >
             <Meta className="pb-2" title={item.tenPhim} />
-            <Button className="flex">Xem chi tiết</Button>
+          
+            <Button className="flex"><Link to={`/detail/${item.maPhim}`}>Xem chi tiết</Link></Button>
           </Card>
         ))}
 

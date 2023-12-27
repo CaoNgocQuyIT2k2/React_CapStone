@@ -30,7 +30,7 @@ const Headers = () => {
                 }}
                     items={[
                         {
-                            title: <a href="" style={{ color: 'white' }}>Trang chủ</a>,
+                            title: <Link style={{ color: 'white' }} to="/">Trang chủ</Link>
                         },
                         {
                             title: <a href="" style={{ color: 'white' }}>Liên hệ</a>,
@@ -39,20 +39,20 @@ const Headers = () => {
                             title: <a href="" style={{ color: 'white' }}>Tin tức</a>,
                         },
                         {
-                            title: <a href="" style={{ color: 'white' }}>Ứng dụng</a>,
+                            title: <a href="" style={{ color: 'white' }}>Đặt vé</a>,
                         },
                     ]}
                 />
 
 
                 <div className='text-white'>
-                    <Link to={"/"}>Đăng nhập</Link>
+                    <Link to="/login">Đăng nhập</Link>
                 </div>
                 <div className='text-white pl-2 pr-2'>
                     |
                 </div>
                 <div className='text-white'>
-                    <Link to={"/"}>Đăng kí</Link>
+                    <Link to="/register">Đăng kí</Link>
                 </div>
             </Header>
         </Layout>
