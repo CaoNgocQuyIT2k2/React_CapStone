@@ -26,7 +26,7 @@ export let loginAction = (values, navigate) => {
       })
       .catch((err) => {
         console.log(" 😂 ~ return ~ err:", err);
-        message.error("Login redux thunk thất bại ");
+        message.error("Login thất bại ");
         dispatch({
           type: TURN_OFF,
         });

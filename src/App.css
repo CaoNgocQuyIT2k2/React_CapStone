@@ -170,3 +170,16 @@
   border-radius: 4px;
   color:#000;
 }
+
+.btn-theme{
+  @apply border-2 border-white px-5 py-2 rounded;
+}
+
+.header{
+  /* background-color: black; */
+  color: white;
+}
+
+:where(.css-dev-only-do-not-override-zcfrx9).ant-input{
+  background-color: transparent !important;
+}

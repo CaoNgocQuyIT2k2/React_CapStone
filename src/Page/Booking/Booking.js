@@ -162,7 +162,7 @@ const Booking = () => {
 
   return (
     <div style={{
-      backgroundImage: `url(${require('./batman.jpg')})`,
+      backgroundImage: `url(${require('../../components/img/bg.png')})`,
       backgroundPosition: 'center',
       backgroundRepeat: 'none',
       backgroundSize: 'cover',

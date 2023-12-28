@@ -18,7 +18,7 @@ function App() {
           <Route path="/" element={<HomeLayout/>}>  
           <Route path="/" element={<HomePage/>} />
           <Route path="/detail/:idPhim" element={<DetailPage />} />
-          <Route path="/booking" element={<Booking/>} />
+          <Route path="/booking/:idPhim" element={<Booking/>} />
           
           </Route>
 
@@ -26,6 +26,7 @@ function App() {
           <Route path="lichChieuPhim/:idPhim" element={<LichChieuPhim />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<Register/>} />
+
         </Routes>
       </BrowserRouter>
     </div>

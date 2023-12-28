@@ -140,7 +140,7 @@ const LichChieuPhim = () => {
               </Select>
             </Form.Item>
             <Form.Item label="Ngày chiếu giờ chiếu" name="dateTime">
-              <DatePicker className='text-black'  showTime format="YYYY-MM-DD HH:mm" placeholder="Chọn thời gian" />
+              <DatePicker className='setDate' showTime format="YYYY-MM-DD HH:mm" placeholder="Chọn thời gian" />
             </Form.Item>
             <Form.Item label="Giá vé" name="giaVe">
               <InputNumber />

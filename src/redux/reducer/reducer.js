@@ -2,8 +2,9 @@
 import { LOGOUT_USER, SET_INFO } from "../constant/user";
 
 let initialState = {
-  user: null, 
+  user: JSON.parse(localStorage.getItem("USER_INFO")) || null,
 };
+
 
 export let userReducer = (state = initialState, action) => {
   switch (action.type) {
