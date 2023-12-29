@@ -174,7 +174,7 @@ const Booking = () => {
         <div className='flex p-2'>
           <span className='flex'>  <span className='border-orange-400 w-5 h-5  bg-white block m-2'></span> Ghế chưa đặt</span>
           <span className='flex'> <span className='border-orange-400 w-5 h-5  bg-green-500 block m-2'></span> Ghế đang đặt</span>
-          <span className='flex'> <span className='border-orange-400 w-5 h-5 bg-slate-500 block m-2'></span> Ghế đang đặt</span>
+          <span className='flex'> <span className='border-orange-400 w-5 h-5 bg-slate-500 block m-2'></span> Ghế đã đặt</span>
         </div>
       </div>
 
