@@ -67,8 +67,8 @@ export default function TabMovie() {
         marginBottom: "1rem",
         marginTop: "2rem"
       }}>
-      <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '5px', paddingTop: '6px' }}><FaStar size={23} className="mr-2" />
-        Lịch chiếu phim <FaStar size={23} className="ml-2"/>
+      <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '5px', paddingTop: '6px' }}><FaStar size={23} className="mr-2 text-yellow-500" />
+        Lịch chiếu phim <FaStar size={23} className="ml-2 text-yellow-500"/>
       </span>
  
       </div>
