@@ -27,7 +27,7 @@
   width: 100vw;
   height: 100vh;
   background-position: center;
-  color: #fff; /* Màu chữ sẽ dễ đọc hơn trên background mờ */
+  color: #fff; 
   text-align: center;
   background-size: cover;
 }
@@ -86,10 +86,13 @@
 }
 
 .login_container {
+  background-image: url(./components/img/bg.png);
+  background-size: cover;
   width: 100vw;
   height: 100vh;
   margin: 0 auto;
 }
+
 
 .form_login {
   width: 100%;

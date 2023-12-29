@@ -39,7 +39,7 @@ const FormLogin = () => {
       className="w-1/2"
     >
       <i class="fa fa-lock icon"></i>
-      <h2 style={{ fontSize: "30px", fontWeight: "400", color: "white" }}>
+      <h2 style={{ fontSize: "30px", fontWeight: "400", color: "white", marginLeft:"90px" }}>
         Đăng Nhập
       </h2>
       <br />

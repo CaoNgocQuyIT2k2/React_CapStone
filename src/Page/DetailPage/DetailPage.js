@@ -56,7 +56,9 @@ export default function DetailPage() {
                 <h1 className="mt-2 text-sm "  key={lichChieu.maLichChieu}>
                   {/* Customize the content as needed */}
                 <span className="mr-2">    {moment(lichChieu.ngayChieuGioChieu).format("DD-MM-YYYY ~ hh:mm")}</span>
-                  <Button className=" text-white border-white  " type="primary"><Link  to={`/booking/${idPhim}`}>{lichChieu.tenRap}</Link></Button>
+                <span>{lichChieu.tenRap}</span>
+                <br />
+                  <Button className=" text-white border-white  " type="primary"><Link  to={`/booking/${idPhim}`}>Đặt vé</Link></Button>
                 </h1>
               ))}
               </div>
@@ -93,9 +95,10 @@ export default function DetailPage() {
 
           <button className="btn-theme">
           <a
-            className="text-2xl font-bold "
+            className="text-2xl font-bold text-white "
             target="_blank"
             href={detail.trailer}
+            
           >
             Trailer
           </a>

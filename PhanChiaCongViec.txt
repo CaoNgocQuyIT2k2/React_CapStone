@@ -3,3 +3,5 @@ Cao Ngọc Quý:
 - Phần Admin: tạo lịch chiếu, xóa phim 
 
 ----------------------------------------------------------------
+Phạm Hoàng Ngọc Anh:
+- Phần login, register, detail
