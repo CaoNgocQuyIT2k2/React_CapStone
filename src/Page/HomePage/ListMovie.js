@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Card } from "antd";
 import Meta from "antd/es/card/Meta";
 import { https } from "../../services/config.js";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa6";
 
 export default function ListMovie() {
@@ -24,27 +24,21 @@ export default function ListMovie() {
   const emptyPlaceholders = 6 - (movieArr.length % 6);
 
   return (
-    <div>
-      <div style={{
-        fontSize:"2rem",
-        marginBottom: "1rem"
-      }}>
-      <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '5px', paddingTop: '6px' }}><FaStar size={23} className="mr-2" />
-        PHIM ĐANG CHIẾU <FaStar size={23} className="ml-2"/>
-      </span>
- 
-      </div>
-      <div style={{ width: "70%" }} className="grid grid-cols-6 gap-3 container">
+    <div className="container">
+      <h2 className="flex items-center justify-center text-center text-2xl font-bold mb-4">
+        PHIM ĐANG CHIẾU <FaStar className="ml-2 text-yellow-500"/>
+      </h2>
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
         {movieArr.map((item, index) => (
           <Card
             key={index}
             className="movie-card"
             hoverable
-            style={{
-              width: "100%",
-              height: "350px",
-            }}
-            cover={<img style={{ height: "250px" }} alt="example" src={item.hinhAnh} />}
+            cover={
+              <div className="relative before:content-[''] before:block before:pt-[calc(100%*3/2)]">
+                <img className="absolute top-0 left-0 w-full h-full object-cover" alt="example" src={item.hinhAnh} />
+              </div>
+            }
           >
             <Meta className="pb-2" title={item.tenPhim} />
           

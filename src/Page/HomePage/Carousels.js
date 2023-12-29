@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { https } from "../../services/config.js";
-import { Carousel as AntCarousel, Button } from "antd";
-import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import { Carousel as AntCarousel } from "antd";
 
 export default function Carousels() {
   const [heThongRap, setHeThongRap] = useState([]);
@@ -19,24 +18,22 @@ export default function Carousels() {
       });
   }, []);
 
-  const contentStyle = {
-    height: '50%',
-    width: '50%',
-    color: '#fff',
-    textAlign: 'center',
-    background: '#364d79',
-    display: 'flex',
-    justifyContent: 'center',  // Center horizontally
-    alignItems: 'center',      // Center vertically
-  };
-
-  const onChange = (currentSlide) => {
-    console.log(currentSlide);
-  };
+  // const contentStyle = {
+  //   height: '50%',
+  //   width: '50%',
+  //   color: '#fff',
+  //   textAlign: 'center',
+  //   background: '#364d79',
+  //   display: 'flex',
+  //   justifyContent: 'center',  // Center horizontally
+  //   alignItems: 'center',      // Center vertically
+  // };
 
   const imgStyle = {
-    width: '75%',
-    height: '30%',
+    width: '100vw',
+    height: 'calc(100vh - 128px)',
+    objectFit: 'cover',
+    objectPosition: 'center bottom',
     margin: 'auto',    // Center the image
   };
 
@@ -44,15 +41,14 @@ export default function Carousels() {
     <div>
       {heThongRap.length > 0 ? (
         <AntCarousel
-          autoplay
+          className="carousel-wrap"
+          // autoplay
           infinite
           autoplaySpeed={2000}
         >
           {heThongRap.map((banner, index) => (
-            <div key={index} style={contentStyle}>
-              <h3>
-                <img src={banner.hinhAnh} alt="" style={imgStyle} />
-              </h3>
+            <div key={index}>
+              <img src={banner.hinhAnh} alt="" style={imgStyle} />
             </div>
           ))}
         </AntCarousel>
