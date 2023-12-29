@@ -171,7 +171,13 @@ const Booking = () => {
       <div style={{ width: '50%', height: '50%' }}>
         <h1 className='text-center  text-3xl text-yellow-400 font-bold mb-3'>LỊCH CHIẾU PHIM</h1>
         {renderGhe()}
+        <div className='flex p-2'>
+          <span className='flex'>  <span className='border-orange-400 w-5 h-5  bg-white block m-2'></span> Ghế chưa đặt</span>
+          <span className='flex'> <span className='border-orange-400 w-5 h-5  bg-green-500 block m-2'></span> Ghế đang đặt</span>
+          <span className='flex'> <span className='border-orange-400 w-5 h-5 bg-slate-500 block m-2'></span> Ghế đang đặt</span>
+        </div>
       </div>
+
       <div>
       <h1 className='text-center  text-3xl text-yellow-400 font-bold mb-4'>DANH SÁCH GHẾ BẠN CHỌN</h1>
       {cart.length > 0 && (
