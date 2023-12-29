@@ -1,0 +1,2 @@
+Cao Ngọc Quý:
+- Phần HomePage, Booking và Admin: tạo lịch chiếu, xóa phim 
