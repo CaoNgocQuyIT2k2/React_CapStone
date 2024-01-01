@@ -1,21 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Breadcrumb,
   Layout,
-  Menu,
-  theme,
-  Button,
   Dropdown,
   message,
   Space,
 } from "antd";
 import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../redux/action/logout";
-const { Header, Content, Footer } = Layout;
+
 
 const Headers = () => {
+  const { Header } = Layout;
+  const [menuActive, setMenuActive] = useState(false);
   let dispatch = useDispatch();
   let navigate = useNavigate();
   //useNavigate dùng để điều hướng trang và không gây reload
@@ -48,15 +47,21 @@ const Headers = () => {
       );
     } else {
       return (
-        <>
-          <div className="text-white">
-            <Link to="/login">Đăng nhập</Link>
-          </div>
-          <div className="text-white pl-2 pr-2">|</div>
-          <div className="text-white">
-            <Link to="/register">Đăng kí</Link>
-          </div>
-        </>
+        <div className="absolute lg:relative top-5 lg:top-0 left-0 w-full lg:w-auto flex justify-center text-teal-800 lg:text-white items-center">
+          <Link
+            className="font-bold lg:font-normal text-teal-800 lg:text-white"
+            to="/login"
+          >
+            Đăng nhập
+          </Link>
+          <div className="mx-3">|</div>
+          <Link
+            className="font-bold lg:font-normal text-teal-800 lg:text-white"
+            to="/register"
+          >
+            Đăng kí
+          </Link>
+        </div>
       );
     }
   };
@@ -90,17 +95,8 @@ const Headers = () => {
   };
   return (
     <Layout>
-      <Header
-        style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 1,
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
-          backgroundColor: "#121121"
-        }}
-      >
+      <Header className="flex items-center fixed top-0 left-0 w-full z-[500] px-0 text-sm shadow-lg">
+        <div className="container flex items-center">
         <span
           onClick={() => {
             navigate("/");
@@ -110,45 +106,73 @@ const Headers = () => {
           CyberFlix
         </span>
 
-        <Breadcrumb
-          style={{
-            flex: 1,
-            minWidth: 0,
-            color: "white",
-          }}
-          items={[
-            {
-              title: (
-                <Link style={{ color: "white" }} to="/">
-                  Trang chủ
-                </Link>
-              ),
-            },
-            {
-              title: (
-                <a href="" style={{ color: "white" }}>
-                  Liên hệ
-                </a>
-              ),
-            },
-            {
-              title: (
-                <a href="" style={{ color: "white" }}>
-                  Tin tức
-                </a>
-              ),
-            },
-            {
-              title: (
-                <a href="" style={{ color: "white" }}>
-                  Đặt vé
-                </a>
-              ),
-            },
-          ]}
-        />
+          <div
+            className={`flex flex-col lg:flex-row justify-center items-center lg:justify-normal opacity-1 fixed top-0 left-0 w-[75vw] h-screen z-50 bg-white/95 lg:flex-grow lg:opacity-100 lg:relative lg:w-auto lg:h-auto lg:pointer-events-auto lg:bg-transparent lg:translate-x-0 transition-all duration-400 
+                                ${
+                                  menuActive
+                                    ? "opacity-100 pointer-events-auto translate-x-0"
+                                    : "opacity-0 pointer-events-none translate-x-[-100%]"
+                                }`}
+          >
+            <Breadcrumb
+              className="mx-auto nav-custom"
+              items={[
+                {
+                  title: (
+                    <Link className="asd" to="/">
+                      <span className="block text-black font-medium lg:font-normal text-lg lg:text-base lg:text-white mb-4 lg:mr-5 lg:mb-0">
+                        Trang chủ
+                      </span>
+                    </Link>
+                  ),
+                },
+                {
+                  title: (
+                    <Link className="" to="/lien-he">
+                      <span className="block text-black font-medium lg:font-normal text-lg lg:text-base lg:text-white mb-4 lg:mr-5 lg:mb-0">
+                        Liên hệ
+                      </span>
+                    </Link>
+                  ),
+                },
+                {
+                  title: (
+                    <Link className="" to="/tin-tuc">
+                      <span className="block text-black font-medium lg:font-normal text-lg lg:text-base lg:text-white mb-4 lg:mr-5 lg:mb-0">
+                        Tin tức
+                      </span>
+                    </Link>
+                  ),
+                },
+                {
+                  title: (
+                    <Link className="" to="/dat-ve">
+                      <span className="block text-black font-medium lg:font-normal text-lg lg:text-base lg:text-white mb-4 lg:mr-5 lg:mb-0">
+                        Đặt vé
+                      </span>
+                    </Link>
+                  ),
+                },
+              ]}
+            />
 
-        {renderMenu()}
+            {renderMenu()}
+          </div>
+
+          <div
+            className="inline-flex w-[40px] h-[40px] p-[10px] ml-auto mr-[-15px] text-white lg:hidden"
+            onClick={() => {
+              setMenuActive(!menuActive);
+            }}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path
+                fill="currentColor"
+                d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+              />
+            </svg>
+          </div>
+        </div>
       </Header>
     </Layout>
   );

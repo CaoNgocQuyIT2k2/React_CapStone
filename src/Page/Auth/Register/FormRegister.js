@@ -30,10 +30,10 @@ export default function FormRegister() {
       });
   };
   return (
-    <div className="register">
+    <div className="register grid grid-cols-1 md:grid-cols-2 gap-4">
       <Form
         onFinish={handleSubmit}
-        className="container  register_container"
+        className="container register_container"
         name="basic"
         labelCol={{
           span: 8,
@@ -42,7 +42,7 @@ export default function FormRegister() {
           span: 16,
         }}
         style={{
-          maxWidth: 600,
+          maxWidth: "100%", // Chỉnh kích thước cho màn hình nhỏ
           padding: "10px",
         }}
         initialValues={{
@@ -53,7 +53,7 @@ export default function FormRegister() {
         autoComplete="off"
       >
         <i class="fa fa-lock icon"></i>
-        <h2 style={{fontSize: "30px", fontWeight:"400", color:"white"}}>Đăng Ký</h2>
+        <h2 style={{fontSize: "30px", fontWeight:"400", color:"white", marginLeft: 230}}>Đăng Ký</h2>
         {/* //------------------------------ */}
         <Form.Item
           label=""

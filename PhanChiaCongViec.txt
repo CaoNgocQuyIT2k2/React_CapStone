@@ -5,3 +5,4 @@ Cao Ngọc Quý:
 ----------------------------------------------------------------
 Phạm Hoàng Ngọc Anh:
 - Phần login, register, detail
+...

@@ -12,7 +12,7 @@ import LichChieuPhim from './Page/Admin/SetShowtimes/LichChieuPhim';
 
 function App() {
   return (
-    <div>
+    <div className='w-full overflow-x-hidden overflow-y-scroll lg:overflow-y-auto'>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomeLayout/>}>  

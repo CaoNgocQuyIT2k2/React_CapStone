@@ -18,25 +18,6 @@ export default function Carousels() {
       });
   }, []);
 
-  // const contentStyle = {
-  //   height: '50%',
-  //   width: '50%',
-  //   color: '#fff',
-  //   textAlign: 'center',
-  //   background: '#364d79',
-  //   display: 'flex',
-  //   justifyContent: 'center',  // Center horizontally
-  //   alignItems: 'center',      // Center vertically
-  // };
-
-  const imgStyle = {
-    width: '100vw',
-    height: 'calc(100vh - 128px)',
-    objectFit: 'cover',
-    objectPosition: 'center bottom',
-    margin: 'auto',    // Center the image
-  };
-
   return (
     <div>
       {heThongRap.length > 0 ? (
@@ -47,8 +28,10 @@ export default function Carousels() {
           autoplaySpeed={2000}
         >
           {heThongRap.map((banner, index) => (
-            <div key={index}>
-              <img src={banner.hinhAnh} alt="" style={imgStyle} />
+            <div key={index} className="pt-16 lg:pt-0">
+              <img 
+                className="w-full bg-black object-contain object-center-bottom m-auto h-[calc(70vh-8rem)] lg:h-[calc(100vh-8rem)]"
+                src={banner.hinhAnh} alt="" />
             </div>
           ))}
         </AntCarousel>

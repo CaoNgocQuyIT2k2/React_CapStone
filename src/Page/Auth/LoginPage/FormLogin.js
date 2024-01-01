@@ -18,7 +18,7 @@ const FormLogin = () => {
     console.log("Failed:", errorInfo);
   };
   return (
-    <div className="form_login">
+    <div className="form_login ">
       <Form
       name="basic"
       labelCol={{

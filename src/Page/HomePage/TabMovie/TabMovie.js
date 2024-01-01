@@ -6,11 +6,12 @@ import { FaStar } from "react-icons/fa6";
 
 export default function TabMovie() {
   const [heThongRap, setHeThongRap] = useState([]);
+
   useEffect(() => {
     https
       .get(`api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP09`)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setHeThongRap(res.data.content);
         console.log(res.data.content);
       })
@@ -18,36 +19,27 @@ export default function TabMovie() {
         console.log(err);
       });
   }, []);
-  const onChange = (key) => {
-    console.log(key);
-  };
+
   const items = heThongRap.map((heThong, index) => {
     return {
       key: index,
       label: <img className="w-16" src={heThong.logo} alt="" />,
       children: (
         <Tabs
-          style={{
-            height: 600,
-          }}
+          className="h-[calc(560px)]"
           tabPosition="left"
           items={heThong.lstCumRap.map((cumRap) => {
             return {
               key: cumRap.diaChi,
               label: (
-                <div className="w-60 truncate text-left">
+                <div className="w-60 text-left">
                   <Tooltip title={cumRap.diaChi}>
-                    <p>{cumRap.tenCumRap}</p>
+                    <p className="overflow-hidden text-ellipsis">{cumRap.tenCumRap}</p>
                   </Tooltip>
                 </div>
               ),
               children: (
-                <div
-                  style={{
-                    height: 600,
-                  }}
-                  className="space-y-5 overflow-y-scroll"
-                >
+                <div className="h-[calc(560px)] overflow-y-scroll movies-wrap">
                   {cumRap.danhSachPhim.map((phim) => {
                     return <ItemMovie data={phim} key={phim.maPhim} />;
                   })}
@@ -59,31 +51,22 @@ export default function TabMovie() {
       ),
     };
   });
-  console.log(items);
-  return (
-    <div>
-      <div style={{
-        fontSize:"2rem",
-        marginBottom: "1rem",
-        marginTop: "2rem"
-      }}>
-      <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '5px', paddingTop: '6px' }}><FaStar size={23} className="mr-2 text-yellow-500" />
-        Lịch chiếu phim <FaStar size={23} className="ml-2 text-yellow-500"/>
-      </span>
- 
-      </div>
 
-    <div style={{
-      width: '70%',
-      paddingBottom:"8rem"
-    }} className="container" >
-      <Tabs
-        tabPosition="left"
-        defaultActiveKey="1"
-        items={items}
-        onChange={onChange}
-      />
-    </div>
+  return (
+    <div className="container">
+      <h2 className="flex items-center justify-center text-center text-2xl font-bold my-10">
+        LỊCH CHIẾU PHIM <FaStar className="ml-2 text-yellow-500"/>
+      </h2>
+
+      <div className="pb-20 w-full overflow-x-scroll lg:overflow-hidden">
+        <div className="pr-5 lg:pr-0 min-w-[1200px] lg:min-w-0">
+          <Tabs
+              tabPosition="left"
+              defaultActiveKey="1"
+              items={items}
+            />
+        </div>
+      </div>
     </div>
   );
 }
